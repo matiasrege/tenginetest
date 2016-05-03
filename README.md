@@ -16,6 +16,6 @@ Inside the container
 ```bash
 /opt/nginx/sbin/nginx -c /app/nginx.conf
 
-curl localhost:8080/foo -v
+curl 127.0.0.1:8080/foo -v
 ```
 

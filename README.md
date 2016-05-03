@@ -127,3 +127,80 @@ root@0d72ec5d8e67:/app# cat /opt/nginx/logs/error.log
 root@0d72ec5d8e67:/app# dmesg
 [11699.382380] nginx[12372]: segfault at 40 ip 000000000049e2c0 sp 00007fff27c5e710 error 4 in nginx[400000+c9000]
 ```
+
+##Context
+
+```bash
+root@f79ca87bf6cb:/app# /opt/nginx/sbin/nginx -V
+Tengine version: Tengine/2.1.2 (nginx/1.6.2)
+built by gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.1) 
+TLS SNI support enabled
+configure arguments: --with-debug --with-cc-opt='-D NGX_HAVE_CASELESS_FILESYSTEM=0' --prefix=/opt/nginx
+loaded modules:
+    ngx_core_module (static)
+    ngx_errlog_module (static)
+    ngx_conf_module (static)
+    ngx_dso_module (static)
+    ngx_syslog_module (static)
+    ngx_events_module (static)
+    ngx_event_core_module (static)
+    ngx_epoll_module (static)
+    ngx_procs_module (static)
+    ngx_proc_core_module (static)
+    ngx_openssl_module (static)
+    ngx_regex_module (static)
+    ngx_http_module (static)
+    ngx_http_core_module (static)
+    ngx_http_log_module (static)
+    ngx_http_upstream_module (static)
+    ngx_http_static_module (static)
+    ngx_http_autoindex_module (static)
+    ngx_http_index_module (static)
+    ngx_http_auth_basic_module (static)
+    ngx_http_access_module (static)
+    ngx_http_limit_conn_module (static)
+    ngx_http_limit_req_module (static)
+    ngx_http_geo_module (static)
+    ngx_http_map_module (static)
+    ngx_http_split_clients_module (static)
+    ngx_http_referer_module (static)
+    ngx_http_rewrite_module (static)
+    ngx_http_ssl_module (static)
+    ngx_http_proxy_module (static)
+    ngx_http_fastcgi_module (static)
+    ngx_http_uwsgi_module (static)
+    ngx_http_scgi_module (static)
+    ngx_http_memcached_module (static)
+    ngx_http_empty_gif_module (static)
+    ngx_http_browser_module (static)
+    ngx_http_user_agent_module (static)
+    ngx_http_upstream_ip_hash_module (static)
+    ngx_http_upstream_consistent_hash_module (static)
+    ngx_http_upstream_check_module (static)
+    ngx_http_upstream_least_conn_module (static)
+    ngx_http_upstream_keepalive_module (static)
+    ngx_http_upstream_dynamic_module (static)
+    ngx_http_stub_status_module (static)
+    ngx_http_write_filter_module (static)
+    ngx_http_header_filter_module (static)
+    ngx_http_chunked_filter_module (static)
+    ngx_http_range_header_filter_module (static)
+    ngx_http_gzip_filter_module (static)
+    ngx_http_postpone_filter_module (static)
+    ngx_http_ssi_filter_module (static)
+    ngx_http_charset_filter_module (static)
+    ngx_http_userid_filter_module (static)
+    ngx_http_footer_filter_module (static)
+    ngx_http_trim_filter_module (static)
+    ngx_http_headers_filter_module (static)
+    ngx_http_upstream_session_sticky_module (static)
+    ngx_http_reqstat_module (static)
+    ngx_http_copy_filter_module (static)
+    ngx_http_range_body_filter_module (static)
+    ngx_http_not_modified_filter_module (static)
+```
+
+```bash
+root@f79ca87bf6cb:/app# uname -a
+Linux f79ca87bf6cb 4.4.0-21-generic #37-Ubuntu SMP Mon Apr 18 18:33:37 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+```
